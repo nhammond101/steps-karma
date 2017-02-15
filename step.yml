@@ -1,0 +1,39 @@
+title: Run karma command
+summary: Runs `karma` with the given command and args.
+description: Runs `karma` with the given command and args.
+website: https://github.com/nhammond101/steps-karma
+source_code_url: https://github.com/nhammond101/steps-karma
+support_url: https://github.com/nhammond101/steps-karma/issues
+type_tags:
+- karma
+deps:
+  brew:
+  - name: npm
+  apt-get:
+  - name: npm
+inputs:
+  - workdir: $BITRISE_SOURCE_DIR
+    opts:
+      title: Working directory
+      description: |
+        Working directory of the step.
+        You can leave it empty to not change it.
+  - command:
+    opts:
+      title: The `karma` command to run
+      description: Specify the command to run with `karma`. For example `start`.
+  - args:
+    opts:
+      title: Arguments for running `karma` commands
+      description: |-
+        Arguments are added to the `karma` command. You can specify multiple arguments, separated
+        by a space character Nb. --single-run is appended automatically. For example `--log-level debug`
+  - is_debug: "no"
+    opts:
+      title: "Debug?"
+      description: |
+        If debug=yes the step will print debug infos about
+        the working dir, tmp file path, exit code, etc.
+      value_options:
+        - "no"
+        - "yes"
